@@ -11,7 +11,7 @@ Scripts are used to manage OpenVZ server for actions such as:
 Clone the repository to OpenVZ server and run following:
 
 1. Change directory to the downloaded directory.
-2. ```BASH sh master.sh```
+2. ```sh master.sh```
 
 Running above command will present a menu similar to the following from where you can choose which action to perform.
 
