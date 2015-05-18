@@ -1,0 +1,47 @@
+OpenVZ cheat sheet:
+
+vzctl create 101 --ostemplate centos-5-x86 -–config basic
+vzctl create 101
+vzctl set 101 --onboot yes --save
+vzctl set 101 --hostname server101.mydomain.com --save
+vzctl set 101 --ipadd 10.0.186.1 --save
+vzctl set 101 --nameserver 192.168.1.165 --save
+vzctl set 101 --name computer1 --save
+-----------------
+When specifying names for Containers, please keep in mind the following:
+
+Names may contain the following symbols: a-z, A-Z, 0-9, underscores (_), dashes (-), spaces, the symbols from the ASCII character table with their code in the 128–255 range, and all the national alphabets included in the Unicode code space.
+Container names cannot consist of digits only; otherwise, there would be no way to distinguish them from Container IDs.
+If it contains one or more spaces, the Container name should be put in single or double quotes, or the spaces have to be escaped by preceding them with a backslashes (\).
+-----------------
+
+vzctl exec 101 service sshd status
+vzctl exec 101 service sshd start
+vzctl exec 101 service sshd status
+
+vzctl set 101 --userpasswd root:test
+
+vzctl start 101
+vzctl status 101
+vzctl stop 101
+vzctl stop 101 --fast //do not wait for 2 minutes timeout.
+vzctl restart 101
+vzlist -a
+
+vzctl set 101 --description "Container 101
+> owner - Mr. Johnson
+> purpose - hosting the MySQL server" --save
+Saved parameters for CT 101
+
+vzlist -o description 101
+
+vzctl set 101 --diskspace 20G:25G --save
+vzctl set 777 --ram 512M --swap 1G --save
+vzctl set 101 --diskinodes 90000:91000 --save
+vzctl set 101 --quotatime 600 --save
+
+vzquota stat 101 –t
+vzctl set 101 --cpus 2 --save
+vzctl exec 101 cat /proc/cpuinfo
+vzctl exec 101 cat /proc/user_beancounters
+vzmemcheck -v -A
