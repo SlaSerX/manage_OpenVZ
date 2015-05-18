@@ -14,3 +14,5 @@ Clone the repository to OpenVZ server and run following:
 2. ```BASH sh master.sh```
 
 Running above command will present a menu similar to the following from where you can choose which action to perform.
+
+<img src="http://i1056.photobucket.com/albums/t361/aman_hanjrah/ovz_master_zpslolujg0y.png" />
